@@ -1,6 +1,6 @@
 FROM exocom/amazonlinux-node:6.10.3
 
-ENV OPENCV_VERSION 2.4.12.3
+ENV OPENCV_VERSION 3.3.0
 
 RUN yum update -y \
       && yum install -y unzip cmake
@@ -11,7 +11,7 @@ RUN cd /usr/local/src \
     && curl -s -L -O https://github.com/itseez/opencv/archive/${OPENCV_VERSION}.zip \
     && unzip ${OPENCV_VERSION}.zip \
     && cd /usr/local/src/opencv-${OPENCV_VERSION}/release \
-    && cmake -D BUILD_PNG=OFF -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_SHARED_LIBS=NO .. \
+    && cmake -D CMAKE_BUILD_TYPE=RELEASE -D WITH_IPP=ON -D INSTALL_CREATE_DISTRIB=ON .. \
     && make && make install \
     && cd /usr/local/src && rm ${OPENCV_VERSION}.zip
 
