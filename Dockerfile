@@ -13,7 +13,7 @@ RUN cd /usr/local/src \
     && cd /usr/local/src/opencv-${OPENCV_VERSION}/release \
     && cmake -D BUILD_PNG=OFF -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_SHARED_LIBS=NO .. \
     && make && make install \
-    && cd .. && rm ${OPENCV_VERSION}.zip
+    && cd /usr/local/src && rm ${OPENCV_VERSION}.zip
 
 ENV LD_LIBRARY_PATH /usr/local/lib
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig
