@@ -1,6 +1,6 @@
 FROM exocom/amazonlinux-node:6.10.3
 
-ENV OPENCV_VERSION 3.3.0
+ENV OPENCV_VERSION 2.4.12.3
 
 RUN yum update -y \
       && yum install -y unzip cmake
